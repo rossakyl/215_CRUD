@@ -3,3 +3,6 @@ Hasil GET
 
 Hasil POST
 <img width="1917" height="1077" alt="image" src="https://github.com/user-attachments/assets/37f1c588-1c63-4537-aac1-509aa96c7377" />
+
+Hasil PUT
+<img width="1917" height="1077" alt="image" src="https://github.com/user-attachments/assets/09727185-50c9-4991-b631-8d197f9eb0a9" />
