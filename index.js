@@ -53,6 +53,22 @@ app.post('/biodata', async (req, res) => {
     }
 });
 
+//put
+app.put('/biodata/:id', async (req, res) => {
+    const { id } = req.params;
+    const { nama, nim, kelas } = req.body;
+
+    try {
+        const result = await pool.query(
+            'UPDATE biodata SET nama=$1, nim=$2, kelas=$3 WHERE id=$4 RETURNING *',
+            [nama, nim, kelas, id]
+        );
+        
+    } catch (error) {
+        
+    }
+});
+
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
