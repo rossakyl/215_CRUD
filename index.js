@@ -31,6 +31,28 @@ app.get('/biodata', async (req, res) => {
     }
 });
 
+//post 
+app.post('/biodata', async (req, res) => {
+    const { id, nama, nim, kelas } = req.body;
+
+    try {
+        const result = await pool.query(
+            'INSERT INTO biodata(id, nama, nim, kelas) VALUES($1, $2, $3, $4) RETURNING *',
+            [id, nama, nim, kelas]
+        );
+
+        res.status(201).json({
+            message: 'Data added successfully',
+            data: result.rows[0],
+        });
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).json({
+            error: "Terjadi kesalahan pada server atau database"
+        });
+    }
+});
+
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
